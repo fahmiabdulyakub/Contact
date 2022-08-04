@@ -1,5 +1,5 @@
 import {FlatList, View} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './styles';
 import {Card, Header} from 'components';
 import {ICPlus, ICSearch} from 'assets';
@@ -15,7 +15,11 @@ const Contact = () => {
   const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
   const {user} = useSelector((state: RootState) => state.userReducer);
   const [refresh, setRefresh] = useState(false);
-  const [userData, setUserData] = useState<DataUserType[]>(user);
+  const [userData, setUserData] = useState<DataUserType[]>();
+
+  useEffect(() => {
+    setUserData(user);
+  }, [user]);
 
   const onRefresh = () => {
     setRefresh(true);
