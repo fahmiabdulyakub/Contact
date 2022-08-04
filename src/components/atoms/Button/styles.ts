@@ -10,7 +10,8 @@ export default StyleSheet.create({
     marginBottom: hp(2),
   },
   title: {
-    fontSize: hp(1.8),
+    fontSize: hp(2.5),
     color: Colors.orange,
+    fontWeight: '400',
   },
 });

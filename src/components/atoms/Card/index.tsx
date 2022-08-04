@@ -3,9 +3,9 @@ import React from 'react';
 import styles from './styles';
 import {PropsType} from './types';
 
-const Card = ({item}: PropsType) => {
+const Card = ({item, onPress}: PropsType) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.image} />
       <Text style={styles.text}>{item.firstName + ' ' + item.lastName}</Text>
     </TouchableOpacity>
