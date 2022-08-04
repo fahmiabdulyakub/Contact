@@ -1,5 +1,5 @@
 import {FlatList, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './styles';
 import {Card, Header} from 'components';
 import {ICPlus, ICSearch} from 'assets';
@@ -8,10 +8,20 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {StackParams} from 'types/navigationType';
 import {useSelector} from 'react-redux';
 import {RootState} from 'store/reducers';
+import {DataUserType} from 'types/DataUserType';
+import {Data} from 'constants/index';
 
 const Contact = () => {
   const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
   const {user} = useSelector((state: RootState) => state.userReducer);
+  const [refresh, setRefresh] = useState(false);
+  const [userData, setUserData] = useState<DataUserType[]>(user);
+
+  const onRefresh = () => {
+    setRefresh(true);
+    setUserData(Data);
+    setRefresh(false);
+  };
   return (
     <View style={styles.container}>
       <Header
@@ -20,11 +30,13 @@ const Contact = () => {
         iconButtonRight={<ICPlus />}
       />
       <FlatList
+        refreshing={refresh}
+        onRefresh={onRefresh}
         maxToRenderPerBatch={10}
         onEndReachedThreshold={0}
         showsVerticalScrollIndicator={false}
         keyExtractor={(item, index) => index.toString()}
-        data={user}
+        data={userData}
         renderItem={({item}) => (
           <Card
             item={item}

@@ -41,16 +41,4 @@ const styles = StyleSheet.create({
   SafeAreaView: {
     flex: 1,
   },
-  header: {
-    backgroundColor: Colors.blue,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 11,
-    },
-    shadowOpacity: 0.57,
-    shadowRadius: 15.19,
-
-    elevation: 23,
-  },
 });

@@ -1,16 +1,14 @@
 import {ScrollView, Text, TextInput, View} from 'react-native';
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import styles from './styles';
 import {Header, Input} from 'components';
 import {Props} from './types';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {StackParams} from 'types/navigationType';
-import {useState} from 'react';
 import {DataUserType} from 'types/DataUserType';
-import {useSelector} from 'react-redux';
 import {RootState} from 'store/reducers';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {updateUser} from 'store/actions';
 
 const ContactDetails = ({route}: Props) => {
