@@ -23,6 +23,7 @@
       "@constants/*": ["src/constants/*"],
       "@assets/*": ["src/assets/*"],
       "@services/*": ["src/services/*"],
+      "@store/*": ["src/store/*"],
       "@types/*": ["src/types/*"]
     }
   },
