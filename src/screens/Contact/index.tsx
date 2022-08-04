@@ -1,18 +1,26 @@
-import {Text, View} from 'react-native';
+import {FlatList, View} from 'react-native';
 import React from 'react';
 import styles from './styles';
-import {Header} from 'components';
+import {Card, Header} from 'components';
 import {ICPlus, ICSearch} from 'assets';
+import {Data} from 'constants/index';
 
 const Contact = () => {
   return (
     <View style={styles.container}>
       <Header
-        title="Contact"
+        title="Contacts"
         iconButtonLeft={<ICSearch />}
         iconButtonRight={<ICPlus />}
       />
-      <Text>Contact</Text>
+      <FlatList
+        maxToRenderPerBatch={10}
+        onEndReachedThreshold={0}
+        showsVerticalScrollIndicator={false}
+        keyExtractor={(item, index) => index.toString()}
+        data={Data}
+        renderItem={({item}) => <Card item={item} />}
+      />
     </View>
   );
 };

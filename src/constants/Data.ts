@@ -1,4 +1,6 @@
-export const Data = [
+import {DataUserType} from 'types/DataUserType';
+
+export const Data: DataUserType[] = [
   {
     id: '5c8a80f52dfee238898d64cf',
     firstName: 'Phoebe',

@@ -1,6 +1,5 @@
-import {DataUserType} from 'screens/Home/types';
+import {DataUserType} from 'types/DataUserType';
+
 export interface PropsType {
   item: DataUserType;
-  rank: number;
-  isSearchedUser: boolean;
 }

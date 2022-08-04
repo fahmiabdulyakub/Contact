@@ -10,16 +10,8 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: hp(2),
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
-    shadowOpacity: 0.34,
-    shadowRadius: 6.27,
-
-    elevation: 10,
+    borderBottomColor: Colors.dark_grey,
+    borderBottomWidth: 2,
   },
   title: {
     color: Colors.black,

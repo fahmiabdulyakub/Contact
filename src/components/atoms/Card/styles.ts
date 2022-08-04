@@ -4,28 +4,26 @@ import {hp, wp} from 'utils/StyleUtil';
 
 export default StyleSheet.create({
   container: {
-    marginVertical: hp(1),
-    marginHorizontal: wp(2),
     flexDirection: 'row',
     backgroundColor: Colors.white,
-    borderRadius: 8,
-    justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: wp(3),
-    paddingVertical: 6,
-    shadowColor: Colors.black,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    paddingHorizontal: wp(5),
+    paddingVertical: hp(1),
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.gray,
   },
   text: {
-    fontSize: hp(1.8),
+    fontSize: hp(2),
     color: Colors.black,
     marginHorizontal: wp(1),
-    width: wp(22.5),
+    width: wp(60),
+    left: wp(3),
+    fontWeight: '500',
+  },
+  image: {
+    width: wp(15),
+    height: wp(15),
+    borderRadius: wp(15) / 2,
+    backgroundColor: Colors.orange,
   },
 });
