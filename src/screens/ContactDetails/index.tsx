@@ -1,4 +1,4 @@
-import {View} from 'react-native';
+import {Text, View} from 'react-native';
 import React from 'react';
 import styles from './styles';
 import {Header} from 'components';
@@ -17,6 +17,25 @@ const ContactDetails = ({route}: Props) => {
         textButtonRight="Save"
         onPressButtonLeft={() => navigation.goBack()}
       />
+      <View style={styles.image} />
+      <View style={styles.containerTitle}>
+        <Text style={styles.title}>Main Information</Text>
+      </View>
+      <View style={styles.containerFormBorder}>
+        <Text style={styles.formName}>First Name</Text>
+      </View>
+      <View style={styles.containerForm}>
+        <Text style={styles.formName}>Last Name</Text>
+      </View>
+      <View style={styles.containerTitle}>
+        <Text style={styles.title}>Sub Information</Text>
+      </View>
+      <View style={styles.containerFormBorder}>
+        <Text style={styles.formName}>Email</Text>
+      </View>
+      <View style={styles.containerFormBorder}>
+        <Text style={styles.formName}>Phone</Text>
+      </View>
     </View>
   );
 };

@@ -4,7 +4,7 @@ import {hp, wp} from 'utils/StyleUtil';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.background,
     height: hp(8),
     paddingHorizontal: wp(2),
     justifyContent: 'space-between',
