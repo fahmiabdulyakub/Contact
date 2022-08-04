@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   containerFormBorder: {
     paddingRight: wp(5),
     marginLeft: wp(5),
-    paddingVertical: hp(1),
+    paddingVertical: hp(0.8),
     borderBottomWidth: 1,
     borderBottomColor: Colors.light_grey,
     flexDirection: 'row',
@@ -38,14 +38,15 @@ const styles = StyleSheet.create({
   containerForm: {
     paddingRight: wp(5),
     marginLeft: wp(5),
-    paddingVertical: hp(1),
+    paddingVertical: hp(0.8),
     flexDirection: 'row',
     alignItems: 'center',
   },
   formName: {
-    fontSize: hp(2),
+    fontSize: hp(1.8),
     fontWeight: '400',
     color: Colors.black,
+    width: wp(28),
   },
 });
 

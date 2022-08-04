@@ -10,7 +10,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     alignItems: 'center',
-    borderBottomColor: Colors.dark_grey,
+    borderBottomColor: Colors.light_grey,
     borderBottomWidth: 2,
   },
   title: {

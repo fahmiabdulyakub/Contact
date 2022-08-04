@@ -5,10 +5,9 @@ import {PropsType} from './types';
 import {TextInput} from 'react-native';
 import {Colors} from 'themes';
 
-const Input = ({icon, value, placeholder, onChangeText}: PropsType) => {
+const Input = ({value, placeholder, onChangeText}: PropsType) => {
   return (
     <View style={styles.container}>
-      {icon}
       <TextInput
         style={styles.input}
         placeholder={placeholder}

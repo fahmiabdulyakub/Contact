@@ -4,17 +4,18 @@ import {hp, wp} from 'utils/StyleUtil';
 
 export default StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    height: hp(4.8),
-    borderRadius: 10,
+    height: hp(5),
+    borderRadius: 8,
     paddingHorizontal: wp(3),
     backgroundColor: Colors.white,
+    borderWidth: 1,
+    borderColor: Colors.light_grey,
+    flex: 1,
   },
   input: {
     fontSize: hp(1.8),
-    color: Colors.gray,
-    width: wp(60),
+    fontWeight: '400',
+    color: Colors.black,
     top: 1,
   },
 });
