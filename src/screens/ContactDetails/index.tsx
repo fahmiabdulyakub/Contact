@@ -1,5 +1,5 @@
-import {Text, View} from 'react-native';
-import React from 'react';
+import {ScrollView, Text, TextInput, View} from 'react-native';
+import React, {useRef} from 'react';
 import styles from './styles';
 import {Header, Input} from 'components';
 import {Props} from './types';
@@ -18,11 +18,15 @@ const ContactDetails = ({route}: Props) => {
   const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
   const {user} = useSelector((state: RootState) => state.userReducer);
   const dispatch = useDispatch();
+  const inputLastNameRef = useRef<TextInput>(null);
+  const inputEmailRef = useRef<TextInput>(null);
+  const inputPhoneRef = useRef<TextInput>(null);
 
   const [userDetail, setUserDetail] = useState<DataUserType>(data);
 
   const onPressSave = () => {
-    let newUser = user;
+    let newUser = [];
+    newUser = user;
 
     const index = user.findIndex((item: DataUserType) => {
       item.id === userDetail.id;
@@ -41,49 +45,57 @@ const ContactDetails = ({route}: Props) => {
         onPressButtonLeft={() => navigation.goBack()}
         onPressButtonRight={onPressSave}
       />
-      <View style={styles.image} />
-      <View style={styles.containerTitle}>
-        <Text style={styles.title}>Main Information</Text>
-      </View>
-      <View style={styles.containerFormBorder}>
-        <Text style={styles.formName}>First Name</Text>
-        <Input
-          value={userDetail.firstName}
-          onChangeText={(value: string) =>
-            setUserDetail({...userDetail, firstName: value})
-          }
-        />
-      </View>
-      <View style={styles.containerForm}>
-        <Text style={styles.formName}>Last Name</Text>
-        <Input
-          value={userDetail.lastName}
-          onChangeText={(value: string) =>
-            setUserDetail({...userDetail, lastName: value})
-          }
-        />
-      </View>
-      <View style={styles.containerTitle}>
-        <Text style={styles.title}>Sub Information</Text>
-      </View>
-      <View style={styles.containerFormBorder}>
-        <Text style={styles.formName}>Email</Text>
-        <Input
-          value={userDetail?.email ?? ''}
-          onChangeText={(value: string) =>
-            setUserDetail({...userDetail, email: value})
-          }
-        />
-      </View>
-      <View style={styles.containerFormBorder}>
-        <Text style={styles.formName}>Phone</Text>
-        <Input
-          value={userDetail.phone ?? ''}
-          onChangeText={(value: string) =>
-            setUserDetail({...userDetail, phone: value})
-          }
-        />
-      </View>
+      <ScrollView style={styles.containerBody}>
+        <View style={styles.image} />
+        <View style={styles.containerTitle}>
+          <Text style={styles.title}>Main Information</Text>
+        </View>
+        <View style={styles.containerFormBorder}>
+          <Text style={styles.formName}>First Name</Text>
+          <Input
+            value={userDetail.firstName}
+            onChangeText={(value: string) =>
+              setUserDetail({...userDetail, firstName: value})
+            }
+            onSubmitEditing={() => inputLastNameRef.current?.focus()}
+          />
+        </View>
+        <View style={styles.containerForm}>
+          <Text style={styles.formName}>Last Name</Text>
+          <Input
+            ref={inputLastNameRef}
+            value={userDetail.lastName}
+            onChangeText={(value: string) =>
+              setUserDetail({...userDetail, lastName: value})
+            }
+            onSubmitEditing={() => inputEmailRef.current?.focus()}
+          />
+        </View>
+        <View style={styles.containerTitle}>
+          <Text style={styles.title}>Sub Information</Text>
+        </View>
+        <View style={styles.containerFormBorder}>
+          <Text style={styles.formName}>Email</Text>
+          <Input
+            ref={inputEmailRef}
+            value={userDetail?.email ?? ''}
+            onChangeText={(value: string) =>
+              setUserDetail({...userDetail, email: value})
+            }
+            onSubmitEditing={() => inputPhoneRef.current?.focus()}
+          />
+        </View>
+        <View style={styles.containerFormBorder}>
+          <Text style={styles.formName}>Phone</Text>
+          <Input
+            ref={inputPhoneRef}
+            value={userDetail.phone ?? ''}
+            onChangeText={(value: string) =>
+              setUserDetail({...userDetail, phone: value})
+            }
+          />
+        </View>
+      </ScrollView>
     </View>
   );
 };

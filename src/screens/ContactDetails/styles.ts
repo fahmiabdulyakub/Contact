@@ -7,6 +7,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.white,
   },
+  containerBody: {
+    flexGrow: 1,
+  },
   image: {
     width: wp(30),
     height: wp(30),

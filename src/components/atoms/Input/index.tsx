@@ -1,23 +1,21 @@
-import {View} from 'react-native';
-import React from 'react';
+import {TextInputProps, View, TextInput} from 'react-native';
+import React, {forwardRef} from 'react';
 import styles from './styles';
-import {PropsType} from './types';
-import {TextInput} from 'react-native';
 import {Colors} from 'themes';
 
-const Input = ({value, placeholder, onChangeText}: PropsType) => {
+const Input = forwardRef<TextInput, TextInputProps>((props, ref) => {
   return (
     <View style={styles.container}>
       <TextInput
+        ref={ref}
         style={styles.input}
-        placeholder={placeholder}
-        value={value}
-        onChangeText={onChangeText}
         placeholderTextColor={Colors.dark_grey}
         numberOfLines={5}
+        returnKeyType="next"
+        {...props}
       />
     </View>
   );
-};
+});
 
 export default Input;
