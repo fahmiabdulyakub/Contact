@@ -23,8 +23,7 @@ const ContactDetails = ({route}: Props) => {
   const [userDetail, setUserDetail] = useState<DataUserType>(data);
 
   const onPressSave = () => {
-    let newUser = [];
-    newUser = user;
+    let newUser = user;
 
     const index = user.findIndex((item: DataUserType) => {
       item.id === userDetail.id;
